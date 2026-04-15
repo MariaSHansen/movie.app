@@ -1,21 +1,16 @@
-const countDisplay = document.querySelector("#counter");
-const clickButton = document.querySelector("#click-button");
-const resetButton = document.querySelector("#reset-button");
+"use strict";
 
-console.log(countDisplay);
-console.log(clickButton);
-console.log(resetButton);
+console.log("Movie App starter...");
 
-let count = 0;
+// Man kan også samle sit array i ét array, i stedet for at lave én variabel per film//
 
-clickButton.addEventListener("click", function () {
-  //count er en let variabel // 
-    count = count + 1;
-  countDisplay.textContent = count;
-});
+const movie = ["Inception", "The Matrix", "Intersteller", "The Dark Knight", "Pulp Fiction"];
 
-resetButton.addEventListener("click", function () {
-  count = 0;
-  countDisplay.textContent = count;
-});
+console.log("Alle film:", movie);
+
+console.log("Første film:", movies[0]);
+console.log("Anden film:", movies[0]);
+console.log("Sidste film:", movies[0]);
+
+console.log("Antal film:", movies.length);
 
