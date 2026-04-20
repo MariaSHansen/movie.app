@@ -1,7 +1,9 @@
 "use strict";
 
+console.log("Movie App starter...");
+
 // ALT DETTE ER FRA OPGAVE 2 (ARRAYS OG LOOPS)
-// console.log("Movie App starter...");
+
 
 // // Man kan også samle sit array i ét array, i stedet for at lave én variabel per film//
 
@@ -49,22 +51,55 @@ const movies = [
         rating: 8.8,
     },
     {
-        title: "the Matrix",
-        year: 2010,
-        rating: 8.8,
+        title: "The Matrix",
+        year: 1999,
+        rating: 8.7,
+    },
+    {
+        title: "Intersteller",
+        year: 2014,
+        rating: 8.6,
+    },
+    {
+        title: "The Dark Knight",
+        year: 2008,
+        rating: 9.0,
     },
 ];
 
-console.log("Første film:", movies[0]);
-console.log("Anden film:", movies[1]);
+console.log ("Alle film:", movies);
+
+const movieList = document.querySelector("#movie-list");
+console.log(movieList);
+
+function showMovies () {
+    movieList.innerHTML = "";
 
 for (const movie of movies) {
-    console.log("Titel:", movie.title);
+    showMovie(movie);
+    }
+}    
+
+function showMovie(movie) {
+    const html = /* html */ `
+     <article class="movie-card">
+        <div class="movie-info">
+        <h3>${movie.title}</h3>
+        <p>År: ${movie.year}</p>
+        <p>Rating: ${movie.rating}</p>
+        </div>
+    </article>
+`;
+    movieList.insertAdjacentHTML("beforeend",html);
 }
 
+showMovies();
 
+movies.push({
+    title: "Pulp Fiction",
+    year: 1994,
+    rating: 8.9,
+});
 
-
-
-
+showMovies();
 
