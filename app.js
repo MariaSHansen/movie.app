@@ -45,32 +45,43 @@ console.log("Movie App starter...");
 // console.log("Rating:", movie.rating);
 
 const movies = [
-    {
-        title: "Inception",
-        year: 2010,
-        rating: 8.8,
-    },
-    {
-        title: "The Matrix",
-        year: 1999,
-        rating: 8.7,
-    },
-    {
-        title: "Intersteller",
-        year: 2014,
-        rating: 8.6,
-    },
-    {
-        title: "The Dark Knight",
-        year: 2008,
-        rating: 9.0,
-    },
+  {
+    title: "Inception",
+    year: 2010,
+    rating: 8.8,
+    image: "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg",
+  },
+  {
+    title: "The Matrix",
+    year: 1999,
+    rating: 8.7,
+    image: "https://m.media-amazon.com/images/M/MV5BN2NmN2VhMTQtMDNiOS00NDlhLTliMjgtODE2ZTY0ODQyNDRhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+  },
+  {
+    title: "Intersteller",
+    year: 2014,
+    rating: 8.6,
+    image: "https://i.ebayimg.com/images/g/S3IAAOSwqkxlZ~Ho/s-l1200.jpg",
+  },
+  {
+    title: "The Dark Knight",
+    year: 2008,
+    rating: 9.0,
+    image: "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_FMjpg_UX1000_.jpg",
+  },
+
+  {
+    title: "Pulp Fiction",
+    year: 1994,
+    rating: 8.9,
+    image: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSS_64tdfszF9nzm-DLay7QatkHeoxlHu6ZttqnYXNKCoL9FnXyJ-0dgYaNFg&usqp=CAc",
+  }
 ];
 
-console.log ("Alle film:", movies);
 
 const movieList = document.querySelector("#movie-list");
-console.log(movieList);
+
+showMovies ();
 
 function showMovies () {
     movieList.innerHTML = "";
@@ -81,8 +92,11 @@ for (const movie of movies) {
 }    
 
 function showMovie(movie) {
+    const highlightClass = movie.rating > 8.5 ? "movie-card--highlight" : "";
+
     const html = /* html */ `
-     <article class="movie-card">
+     <article class="movie-card ${highlightClass}">
+        <img class="movie-image" src="${movie.image}" alt="${movie.title}">
         <div class="movie-info">
         <h3>${movie.title}</h3>
         <p>År: ${movie.year}</p>
@@ -92,14 +106,6 @@ function showMovie(movie) {
 `;
     movieList.insertAdjacentHTML("beforeend",html);
 }
-
-showMovies();
-
-movies.push({
-    title: "Pulp Fiction",
-    year: 1994,
-    rating: 8.9,
-});
 
 showMovies();
 
